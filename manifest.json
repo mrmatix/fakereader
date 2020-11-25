@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Fake Reader",
+  "version": "0.5",
+  "permissions": [
+    "tabs",
+    "<all_urls>"
+  ],
+  "description": "Extension to detect fake news stories",
+  "default_locale": "pl",
+  "background": {"scripts": ["background.js"]},
+  "omnibox": { "keyword" : "sb" },
+  "browser_action": {
+    "name":"Fake Reader",
+    "default_icon": "MM.png",
+    "default_popup": "popup.html",
+    "default_title": "Check if your phrase is fake news."
+  },
+  "icons": {
+    "16": "MM.png",
+    "32": "MM.png",
+    "48": "MM.png",
+    "128": "MM.png"
+  },
+  "options_page": "opt/option.html",
+  "update_url": "http://clients2.google.com/service/update2/crx"
+
+}
