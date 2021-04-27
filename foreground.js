@@ -30,7 +30,7 @@ function search() {
   }
 };
 
-// 得到当前tab的url，chrome://newtab/
+// chrome://newtab/
 var tabURL = null;
 chrome.tabs.getSelected(function(tab) {
   tabURL = tab.url;
