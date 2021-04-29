@@ -1,24 +1,3 @@
-// chrome.browserAction.onClicked.addListener(function(tab) {
-	// No tabs or host permissions needed!
-	//console.log('Turning ' + tab.url + ' red!');
-	// chrome.browserAction.setTitle({title: 'Google'});
-	// chrome.browserAction.setIcon({path: 'icons/Google-white.png'});
-	//localStorage.setItem('engine', 'Google');
-	// alert(localStorage.getItem('engine'));
-	// alert('1111');
-	//chrome.tabs.executeScript(null, {file: "content_script.js"});
-	// chrome.tabs.executeScript({
-	// 	code: 'document.body.style.backgroundColor="red"'
-	// });
-// });
-
-//alert(chrome.i18n.getMessage('Google'));
-// chrome.commands.onCommand.addListener(function(command) {
-// 	//if (command === 'toggle') {
-// 		alert('OK');
-// 	//}
-// });
-
 var engineList = {
     Google: 'http://www.google.com/search?q=%s',
       BBC: 'https://www.bbc.co.uk/search?q=%s',
@@ -55,7 +34,6 @@ var engineList = {
   
   function updateDefaultSuggestion(text) {
       chrome.omnibox.setDefaultSuggestion({
-          // content: engineList[defaultEngine].replace('%s', encodeURIComponent(text)),
           description: chrome.i18n.getMessage('omnibox_suggestion', [defaultEngine, text])
       });
   }
@@ -86,10 +64,8 @@ var engineList = {
       updateSuggestion(text, suggest);
   });
   
-  // Press Enter in address input
   chrome.omnibox.onInputEntered.addListener(function(text) {
       if (text) {
-          // handle default suggestion
           if (!/^http/.test(text)) {
               text = engineList[defaultEngine].replace('%s', encodeURIComponent(text));
           }
